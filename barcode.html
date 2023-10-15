@@ -14,7 +14,8 @@ html, body { height: 100%; }
         <script>
                 function onScanSuccess(decodedText, decodedResult) {
                     console.log(`Code scanned = ${decodedText}`, decodedResult);
-                        window.parent.postMessage({ barcode : decodedText }, '*');
+                    window.opener.postMessage({ barcode : decodedText }, '*');
+                    self.close();
                 }
 
                 let config = {
